@@ -172,6 +172,10 @@ export default function ContactClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
+                    { src: "/WhatsApp.png", 
+                      label: "WhatsApp",
+                      href: "https://wa.me/4571316499?text=Hello%20I%20would%20like%20a%20cleaning%20offer" },
+                      
                     { src: "/Instagram_icon.svg",
                       label: "Instagram",
                       href: "https://www.instagram.com/cleanspell.dk/?fbclid=IwY2xjawPywlFleHRuA2FlbQIxMQBicmlkETBicXRHMzdkdTl5N1Nacktvc3J0YwZhcHBfaWQBMAABHs9ASMZNSt5dhfnxwiS52pxIMVE2HaP6_8Ay0timqQpcxNVwiT2vID5XcVNW_aem_dgoE-s-dU3oB7DY0TwZoiA"},
@@ -183,6 +187,8 @@ export default function ContactClient() {
                     { src: "/tiktok.svg", 
                       label: "TikTok",
                       href: "https://www.tiktok.com/@cleanspell?is_from_webapp=1&sender_device=pc" },
+
+
                   ].map((item) => (
                     <a
                       key={item.label}
@@ -317,62 +323,66 @@ export default function ContactClient() {
                   />
                 </div>
 
-                {/* FILE UPLOAD */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700">
-                    Vedhæft billeder (valgfrit)
-                  </label>
 
-                  <label className="mt-2 inline-flex cursor-pointer items-center gap-3 rounded-xl bg-[#7FD6C2] px-6 py-3 text-sm font-semibold text-white">
-                    Vælg billeder
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      name="images"
-                      multiple
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => {
-                        const files = Array.from(e.target.files || []);
-                        setImagePreviews((prev) => [
-                          ...prev,
-                          ...files.map((f) => URL.createObjectURL(f)),
-                        ]);
-                      }}
-                    />
-                  </label>
+{
+  /*
+  <div>
+    <label className="block text-sm font-medium text-slate-700">
+      Vedhæft billeder (valgfrit)
+    </label>
 
-                  {imagePreviews.length > 0 && (
-                    <div className="mt-4 grid grid-cols-3 gap-3">
-                      {imagePreviews.map((src, index) => (
-                        <div
-                          key={`${src}-${index}`}
-                          className="relative group h-24 rounded-xl overflow-hidden border"
-                        >
-                          <button
-                            type="button"
-                            onClick={() => removeImage(index)}
-                            className="absolute top-1 right-1 z-10 hidden h-6 w-6 items-center justify-center rounded-full bg-black/70 text-white text-xs group-hover:flex"
-                          >
-                            ✕
-                          </button>
+    <label className="mt-2 inline-flex cursor-pointer items-center gap-3 rounded-xl bg-[#7FD6C2] px-6 py-3 text-sm font-semibold text-white">
+      Vælg billeder
+      <input
+        ref={fileInputRef}
+        type="file"
+        name="images"
+        multiple
+        accept="image/*"
+        className="hidden"
+        onChange={(e) => {
+          const files = Array.from(e.target.files || []);
+          setImagePreviews((prev) => [
+            ...prev,
+            ...files.map((f) => URL.createObjectURL(f)),
+          ]);
+        }}
+      />
+    </label>
 
-                          <button
-                            type="button"
-                            onClick={() => setActiveImage(src)}
-                            className="h-full w-full"
-                          >
-                            <img
-                              src={src}
-                              alt={`Uploadet billede ${index + 1}`}
-                              className="h-full w-full object-cover"
-                            />
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
+    {imagePreviews.length > 0 && (
+      <div className="mt-4 grid grid-cols-3 gap-3">
+        {imagePreviews.map((src, index) => (
+          <div
+            key={`${src}-${index}`}
+            className="relative group h-24 rounded-xl overflow-hidden border"
+          >
+            <button
+              type="button"
+              onClick={() => removeImage(index)}
+              className="absolute top-1 right-1 z-10 hidden h-6 w-6 items-center justify-center rounded-full bg-black/70 text-white text-xs group-hover:flex"
+            >
+              ✕
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setActiveImage(src)}
+              className="h-full w-full"
+            >
+              <img
+                src={src}
+                alt={`Uploadet billede ${index + 1}`}
+                className="h-full w-full object-cover"
+              />
+            </button>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+  */
+}
 
                 <button
                   type="submit"
