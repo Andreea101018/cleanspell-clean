@@ -3,21 +3,19 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { SERVICES } from "@/app/constants/servicesdan";
+import { SERVICES } from "@/app/constants/services";
 
 export default function ContactClient() {
-
   const searchParams = useSearchParams();
 
   /* ================= STATE ================= */
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  const [activeImage, setActiveImage] = useState<string | null>(null);
-
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
+
+  type FormStatus = "idle" | "loading" | "success" | "error";
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   /* ================= PRESELECT SERVICES FROM URL ================= */
   useEffect(() => {
@@ -54,10 +52,6 @@ export default function ContactClient() {
     );
   };
 
-  const removeImage = (index: number) => {
-    setImagePreviews((prev) => prev.filter((_, i) => i !== index));
-  };
-
   return (
     <main className="bg-white">
       {/* ================= CONTACT SECTION ================= */}
@@ -73,7 +67,6 @@ export default function ContactClient() {
 
         <div className="relative max-w-6xl mx-auto px-8 pt-20 pb-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
             {/* ================= LEFT – INFO ================= */}
             <div>
               <p className="text-sm uppercase tracking-wider text-[#2BB673]">
@@ -95,12 +88,12 @@ export default function ContactClient() {
               </h1>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Når du kontakter os, tager vi os tid til at forstå dine behov
-                og vender tilbage med et klart og skræddersyet tilbud.
+                Når du kontakter os, tager vi os tid til at forstå dine behov og
+                vender tilbage med et klart og skræddersyet tilbud
               </p>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Det er helt gratis at kontakte os – og uden forpligtelser.
+                Det er helt gratis at tage kontakt – og uden forpligtelser
               </p>
 
               {/* TRUST LIST */}
@@ -108,7 +101,7 @@ export default function ContactClient() {
                 <li className="flex items-start gap-3">
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
                   <span className="text-[#475569] leading-snug">
-                    Vi servicerer Sjælland – op til 70 km fra København
+                    Dækker Sjælland – inden for 70 km fra København
                   </span>
                 </li>
 
@@ -129,7 +122,7 @@ export default function ContactClient() {
                 <li className="flex items-start gap-3">
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
                   <span className="text-[#475569] leading-snug">
-                    Ingen binding og ingen skjulte omkostninger
+                    Ingen binding eller skjulte gebyrer
                   </span>
                 </li>
               </ul>
@@ -151,7 +144,7 @@ export default function ContactClient() {
                   </a>
                 </p>
                 <p>
-                  <strong>E-mail:</strong>{" "}
+                  <strong>Email:</strong>{" "}
                   <a
                     href="mailto:info@nordiskrenhedogbygg.dk"
                     className="text-[#2BB673] hover:underline"
@@ -160,7 +153,7 @@ export default function ContactClient() {
                   </a>
                 </p>
                 <p>
-                  <strong>Åbningstider:</strong> Man–fre kl. 08:00–16:00
+                  <strong>Åbningstider:</strong> Man–Fre, 08:00–16:00
                 </p>
               </div>
 
@@ -172,23 +165,26 @@ export default function ContactClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {[
-                    { src: "/WhatsApp.png", 
+                    {
+                      src: "/WhatsApp.png",
                       label: "WhatsApp",
-                      href: "https://wa.me/4571316499?text=Hello%20I%20would%20like%20a%20cleaning%20offer" },
-                      
-                    { src: "/Instagram_icon.svg",
+                      href: "https://wa.me/4571316499?text=Hej%20jeg%20ønsker%20et%20rengøringstilbud",
+                    },
+                    {
+                      src: "/Instagram_icon.svg",
                       label: "Instagram",
-                      href: "https://www.instagram.com/cleanspell.dk/?fbclid=IwY2xjawPywlFleHRuA2FlbQIxMQBicmlkETBicXRHMzdkdTl5N1Nacktvc3J0YwZhcHBfaWQBMAABHs9ASMZNSt5dhfnxwiS52pxIMVE2HaP6_8Ay0timqQpcxNVwiT2vID5XcVNW_aem_dgoE-s-dU3oB7DY0TwZoiA"},
-
-                    { src: "/fb.webp", 
+                      href: "https://www.instagram.com/cleanspell.dk/",
+                    },
+                    {
+                      src: "/fb.webp",
                       label: "Facebook",
-                      href: "https://www.facebook.com/profile.php?id=61587875840303" },
-
-                    { src: "/tiktok.svg", 
+                      href: "https://www.facebook.com/profile.php?id=61587875840303",
+                    },
+                    {
+                      src: "/tiktok.svg",
                       label: "TikTok",
-                      href: "https://www.tiktok.com/@cleanspell?is_from_webapp=1&sender_device=pc" },
-
-
+                      href: "https://www.tiktok.com/@cleanspell",
+                    },
                   ].map((item) => (
                     <a
                       key={item.label}
@@ -212,207 +208,168 @@ export default function ContactClient() {
 
             {/* ================= RIGHT – FORM ================= */}
             <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
-              <h2 className="text-2xl font-semibold text-[#1F2E45]">
-                Få et personligt tilbud
-              </h2>
-
-              <form
-                className="mt-8 space-y-6"
-                onSubmit={async (e) => {
-                  e.preventDefault();
-                  const form = e.currentTarget;
-
-                  const formData = new FormData(form);
-                  formData.set("services", selectedServices.join(", "));
-
-                  const res = await fetch("/api/contact", {
-                    method: "POST",
-                    body: formData,
-                  });
-
-                  if (res.ok) {
-                    alert(
-                      "Tak for din henvendelse. Vi vender tilbage hurtigst muligt."
-                    );
-
-                    form.reset();
-                    setSelectedServices([]);
-                    setImagePreviews([]);
-                    setActiveImage(null);
-
-                    if (fileInputRef.current) {
-                      fileInputRef.current.value = "";
-                    }
-                  } else {
-                    alert("Noget gik galt. Prøv venligst igen.");
-                  }
-                }}
-              >
-                {/* BASIC FIELDS */}
-                {[
-                  { label: "Navn", type: "text", name: "name" },
-                  { label: "E-mail", type: "email", name: "email" },
-                  { label: "Telefonnummer", type: "tel", name: "phone" },
-                ].map((field) => (
-                  <div key={field.name}>
-                    <label className="block text-sm font-medium text-slate-700">
-                      {field.label}
-                    </label>
-                    <input
-                      required
-                      type={field.type}
-                      name={field.name}
-                      className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
-                    />
+              {formStatus === "success" ? (
+                <div className="text-center py-16">
+                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#2BB673]/10">
+                    <span className="text-3xl">✅</span>
                   </div>
-                ))}
 
-                {/* SERVICES DROPDOWN */}
-                <div ref={dropdownRef}>
-                  <label className="block text-sm font-medium text-slate-700">
-                    Ydelser
-                  </label>
+                  <h2 className="text-2xl font-semibold text-[#1F2E45]">
+                    Tak for din henvendelse!
+                  </h2>
+
+                  <p className="mt-4 text-slate-600">
+                    Din besked er sendt.
+                    <br />
+                    Vi vender tilbage inden for 24 timer.
+                  </p>
+
+                  <a
+                    href="https://wa.me/4571316499?text=Hej%20jeg%20har%20lige%20sendt%20en%20besked%20via%20jeres%20hjemmeside"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 text-white font-semibold hover:bg-[#1ebe5d]"
+                  >
+                    Fortsæt på WhatsApp
+                  </a>
 
                   <button
-                    type="button"
-                    onClick={() => setDropdownOpen((v) => !v)}
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left"
+                    onClick={() => setFormStatus("idle")}
+                    className="mt-6 block text-sm text-[#2BB673] underline mx-auto"
                   >
-                    {selectedServices.length === 0
-                      ? "Vælg ydelser"
-                      : selectedServices.join(", ")}
+                    Send en ny besked
                   </button>
+                </div>
+              ) : (
+                <>
+                  <h2 className="text-2xl font-semibold text-[#1F2E45]">
+                    Få et personligt tilbud
+                  </h2>
 
-                  {dropdownOpen && (
-                    <div className="mt-2 rounded-xl border border-slate-200 bg-white shadow-lg max-h-64 overflow-y-auto">
-                      {SERVICES.map((s) => (
-                        <label
-                          key={s.key}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={selectedServices.includes(s.label)}
-                            onChange={() => toggleService(s.label)}
-                            className="accent-[#2BB673]"
-                          />
-                          <span className="text-sm text-slate-700">
-                            {s.label}
-                          </span>
+                  <form
+                    className="mt-8 space-y-6"
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      if (formStatus === "loading") return;
+
+                      setFormStatus("loading");
+                      setErrorMessage("");
+
+                      const form = e.currentTarget;
+                      const formData = new FormData(form);
+                      formData.append(
+                        "services",
+                        selectedServices.join(", ")
+                      );
+
+                      try {
+                        const res = await fetch("/api/contact", {
+                          method: "POST",
+                          body: formData,
+                        });
+
+                        if (!res.ok) throw new Error();
+
+                        setFormStatus("success");
+                        form.reset();
+                        setSelectedServices([]);
+                        setDropdownOpen(false);
+                      } catch {
+                        setFormStatus("error");
+                        setErrorMessage(
+                          "Noget gik galt. Prøv igen eller kontakt os via WhatsApp."
+                        );
+                      }
+                    }}
+                  >
+                    {[ 
+                      { label: "Navn", type: "text", name: "name" },
+                      { label: "Email", type: "email", name: "email" },
+                      { label: "Telefonnummer", type: "tel", name: "phone" },
+                    ].map((field) => (
+                      <div key={field.name}>
+                        <label className="block text-sm font-medium text-slate-700">
+                          {field.label}
                         </label>
-                      ))}
+                        <input
+                          required
+                          type={field.type}
+                          name={field.name}
+                          className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
+                        />
+                      </div>
+                    ))}
+
+                    <div ref={dropdownRef}>
+                      <label className="block text-sm font-medium text-slate-700">
+                        Ydelser
+                      </label>
+
+                      <button
+                        type="button"
+                        onClick={() => setDropdownOpen((v) => !v)}
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left"
+                      >
+                        {selectedServices.length === 0
+                          ? "Vælg ydelser"
+                          : selectedServices.join(", ")}
+                      </button>
+
+                      {dropdownOpen && (
+                        <div className="mt-2 rounded-xl border border-slate-200 bg-white shadow-lg max-h-64 overflow-y-auto">
+                          {SERVICES.map((s) => (
+                            <label
+                              key={s.key}
+                              className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer"
+                            >
+                              <input
+                                type="checkbox"
+                                checked={selectedServices.includes(s.label)}
+                                onChange={() => toggleService(s.label)}
+                                className="accent-[#2BB673]"
+                              />
+                              <span className="text-sm text-slate-700">
+                                {s.label}
+                              </span>
+                            </label>
+                          ))}
+                        </div>
+                      )}
                     </div>
-                  )}
 
-                  <input
-                    type="hidden"
-                    name="services"
-                    value={selectedServices.join(", ")}
-                  />
-                </div>
+                    <div>
+                      <label className="block text-sm font-medium text-slate-700">
+                        Yderligere information
+                      </label>
+                      <textarea
+                        name="message"
+                        rows={4}
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+                      />
+                    </div>
 
-                {/* MESSAGE */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700">
-                    Yderligere information
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
-                  />
-                </div>
+                    {formStatus === "error" && (
+                      <p className="text-sm text-red-600">{errorMessage}</p>
+                    )}
 
+                    <button
+                      type="submit"
+                      disabled={formStatus === "loading"}
+                      className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866] disabled:opacity-60"
+                    >
+                      {formStatus === "loading" ? "Sender…" : "Kontakt os"}
+                    </button>
 
-{
-  /*
-  <div>
-    <label className="block text-sm font-medium text-slate-700">
-      Vedhæft billeder (valgfrit)
-    </label>
-
-    <label className="mt-2 inline-flex cursor-pointer items-center gap-3 rounded-xl bg-[#7FD6C2] px-6 py-3 text-sm font-semibold text-white">
-      Vælg billeder
-      <input
-        ref={fileInputRef}
-        type="file"
-        name="images"
-        multiple
-        accept="image/*"
-        className="hidden"
-        onChange={(e) => {
-          const files = Array.from(e.target.files || []);
-          setImagePreviews((prev) => [
-            ...prev,
-            ...files.map((f) => URL.createObjectURL(f)),
-          ]);
-        }}
-      />
-    </label>
-
-    {imagePreviews.length > 0 && (
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        {imagePreviews.map((src, index) => (
-          <div
-            key={`${src}-${index}`}
-            className="relative group h-24 rounded-xl overflow-hidden border"
-          >
-            <button
-              type="button"
-              onClick={() => removeImage(index)}
-              className="absolute top-1 right-1 z-10 hidden h-6 w-6 items-center justify-center rounded-full bg-black/70 text-white text-xs group-hover:flex"
-            >
-              ✕
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveImage(src)}
-              className="h-full w-full"
-            >
-              <img
-                src={src}
-                alt={`Uploadet billede ${index + 1}`}
-                className="h-full w-full object-cover"
-              />
-            </button>
-          </div>
-        ))}
-      </div>
-    )}
-  </div>
-  */
-}
-
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866]"
-                >
-                  Send forespørgsel
-                </button>
-
-                <p className="mt-4 text-center text-xs text-slate-500">
-                  Vi svarer normalt inden for 24 timer
-                </p>
-              </form>
+                    <p className="mt-4 text-center text-xs text-slate-500">
+                      Svar inden for 24 timer
+                    </p>
+                  </form>
+                </>
+              )}
             </div>
           </div>
         </div>
       </section>
-
-      {/* IMAGE MODAL */}
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
-          onClick={() => setActiveImage(null)}
-        >
-          <img
-            src={activeImage}
-            alt="Billedforhåndsvisning"
-            className="max-h-[80vh] max-w-4xl rounded-2xl bg-white"
-          />
-        </div>
-      )}
     </main>
   );
 }

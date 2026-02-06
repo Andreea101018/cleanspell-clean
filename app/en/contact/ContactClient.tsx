@@ -11,13 +11,12 @@ export default function ContactClient() {
   /* ================= STATE ================= */
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const [imagePreviews, setImagePreviews] = useState<string[]>([]);
-  const [activeImage, setActiveImage] = useState<string | null>(null);
-
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const fileInputRef = useRef<HTMLInputElement | null>(null);
-const [imageFiles, setImageFiles] = useState<File[]>([]);
+type FormStatus = "idle" | "loading" | "success" | "error";
+
+const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+const [errorMessage, setErrorMessage] = useState("");
+
 
 
 
@@ -56,10 +55,6 @@ const [imageFiles, setImageFiles] = useState<File[]>([]);
     );
   };
 
-const removeImage = (index: number) => {
-  setImagePreviews((prev) => prev.filter((_, i) => i !== index));
-  setImageFiles((prev) => prev.filter((_, i) => i !== index));
-};
 
 
   return (
@@ -218,233 +213,180 @@ const removeImage = (index: number) => {
               </div>
             </div>
 
-            {/* ================= RIGHT – FORM ================= */}
-            <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
-              <h2 className="text-2xl font-semibold text-[#1F2E45]">
-                Get a personal offer
-              </h2>
 
-<form
-  className="mt-8 space-y-6"
-  onSubmit={async (e) => {
-    e.preventDefault();
+{/* ================= RIGHT – FORM ================= */}
+<div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
 
-    const form = e.currentTarget; // ✅ STORE IT IMMEDIATELY
+  {formStatus === "success" ? (
+    /* ✅ SUCCESS STATE */
+    <div className="text-center py-16">
+      <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#2BB673]/10">
+        <span className="text-3xl">✅</span>
+      </div>
 
-const formData = new FormData();
+      <h2 className="text-2xl font-semibold text-[#1F2E45]">
+        Thank you!
+      </h2>
 
-// ✅ TEXT FIELDS (THIS WAS MISSING)
-formData.append(
-  "name",
-  (form.elements.namedItem("name") as HTMLInputElement).value
-);
-formData.append(
-  "email",
-  (form.elements.namedItem("email") as HTMLInputElement).value
-);
-formData.append(
-  "phone",
-  (form.elements.namedItem("phone") as HTMLInputElement).value
-);
-formData.append(
-  "message",
-  (form.elements.namedItem("message") as HTMLTextAreaElement).value || ""
-);
+      <p className="mt-4 text-slate-600">
+        Your message has been sent successfully.
+        <br />
+        We’ll get back to you within 24 hours.
+      </p>
 
-// ✅ SERVICES
-formData.append("services", selectedServices.join(", "));
+      <a
+        href="https://wa.me/4571316499?text=Hello%20I%20just%20sent%20a%20message%20via%20your%20website"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 text-white font-semibold hover:bg-[#1ebe5d]"
+      >
+        Continue on WhatsApp
+      </a>
 
-// ✅ IMAGES (ONLY CURRENT ONES)
-imageFiles.forEach((file) => {
-  formData.append("images", file);
-});
+      <button
+        onClick={() => setFormStatus("idle")}
+        className="mt-6 block text-sm text-[#2BB673] underline mx-auto"
+      >
+        Send another message
+      </button>
+    </div>
+  ) : (
+    /* 📝 FORM STATE */
+    <>
+      <h2 className="text-2xl font-semibold text-[#1F2E45]">
+        Get a personal offer
+      </h2>
 
+      <form
+        className="mt-8 space-y-6"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          if (formStatus === "loading") return;
 
+          setFormStatus("loading");
+          setErrorMessage("");
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      body: formData,
-    });
+          const form = e.currentTarget;
+          const formData = new FormData(form);
+          formData.append("services", selectedServices.join(", "));
 
-    if (res.ok) {
-      alert("Form submitted");
+          try {
+            const res = await fetch("/api/contact", {
+              method: "POST",
+              body: formData,
+            });
 
-      form.reset(); // ✅ SAFE
-      setImageFiles([]);
-      setSelectedServices([]);
-      setImagePreviews([]);
-      setActiveImage(null);
-      
+            if (!res.ok) throw new Error();
 
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
-      }
-    } else {
-      alert("Something went wrong");
-    }
-  }}
->
-
-                {/* BASIC FIELDS */}
-                {[
-                  { label: "Name", type: "text", name: "name" },
-                  { label: "Email", type: "email", name: "email" },
-                  { label: "Phone number", type: "tel", name: "phone" },
-                ].map((field) => (
-                  <div key={field.name}>
-                    <label className="block text-sm font-medium text-slate-700">
-                      {field.label}
-                    </label>
-                    <input
-                      required
-                      type={field.type}
-                      name={field.name}
-                      className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
-                    />
-                  </div>
-                ))}
-
-                {/* CUSTOM DROPDOWN */}
-                <div ref={dropdownRef}>
-                  <label className="block text-sm font-medium text-slate-700">
-                    Services
-                  </label>
-
-                  <button
-                    type="button"
-                    onClick={() => setDropdownOpen((v) => !v)}
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left"
-                  >
-                    {selectedServices.length === 0
-                      ? "Select services"
-                      : selectedServices.join(", ")}
-                  </button>
-
-                  {dropdownOpen && (
-                    <div className="mt-2 rounded-xl border border-slate-200 bg-white shadow-lg max-h-64 overflow-y-auto">
-                      {SERVICES.map((s) => (
-                        <label
-                          key={s.key}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer"
-                        >
-                          <input
-                            type="checkbox"
-                            checked={selectedServices.includes(s.label)}
-                            onChange={() => toggleService(s.label)}
-                            className="accent-[#2BB673]"
-                          />
-                          <span className="text-sm text-slate-700">
-                            {s.label}
-                          </span>
-                        </label>
-                      ))}
-                    </div>
-                  )}
-
-                </div>
-
-                {/* MESSAGE */}
-                <div>
-                  <label className="block text-sm font-medium text-slate-700">
-                    Additional information
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={4}
-                    className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
-                  />
-                </div>
-
-{
-  /*
-  <div>
-    <label className="block text-sm font-medium text-slate-700">
-      Vedhæft billeder (valgfrit)
-    </label>
-
-    <label className="mt-2 inline-flex cursor-pointer items-center gap-3 rounded-xl bg-[#7FD6C2] px-6 py-3 text-sm font-semibold text-white">
-      Vælg billeder
-      <input
-        ref={fileInputRef}
-        type="file"
-        name="images"
-        multiple
-        accept="image/*"
-        className="hidden"
-        onChange={(e) => {
-          const files = Array.from(e.target.files || []);
-          setImagePreviews((prev) => [
-            ...prev,
-            ...files.map((f) => URL.createObjectURL(f)),
-          ]);
+            setFormStatus("success");
+            form.reset();
+            setSelectedServices([]);
+            setDropdownOpen(false);
+          } catch {
+            setFormStatus("error");
+            setErrorMessage(
+              "Something went wrong. Please try again or contact us on WhatsApp."
+            );
+          }
         }}
-      />
-    </label>
-
-    {imagePreviews.length > 0 && (
-      <div className="mt-4 grid grid-cols-3 gap-3">
-        {imagePreviews.map((src, index) => (
-          <div
-            key={`${src}-${index}`}
-            className="relative group h-24 rounded-xl overflow-hidden border"
-          >
-            <button
-              type="button"
-              onClick={() => removeImage(index)}
-              className="absolute top-1 right-1 z-10 hidden h-6 w-6 items-center justify-center rounded-full bg-black/70 text-white text-xs group-hover:flex"
-            >
-              ✕
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setActiveImage(src)}
-              className="h-full w-full"
-            >
-              <img
-                src={src}
-                alt={`Uploadet billede ${index + 1}`}
-                className="h-full w-full object-cover"
-              />
-            </button>
+      >
+        {/* BASIC FIELDS */}
+        {[
+          { label: "Name", type: "text", name: "name" },
+          { label: "Email", type: "email", name: "email" },
+          { label: "Phone number", type: "tel", name: "phone" },
+        ].map((field) => (
+          <div key={field.name}>
+            <label className="block text-sm font-medium text-slate-700">
+              {field.label}
+            </label>
+            <input
+              required
+              type={field.type}
+              name={field.name}
+              className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
+            />
           </div>
         ))}
-      </div>
-    )}
-  </div>
-  */
-}
 
+        {/* SERVICES DROPDOWN */}
+        <div ref={dropdownRef}>
+          <label className="block text-sm font-medium text-slate-700">
+            Services
+          </label>
 
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866]"
+          <button
+            type="button"
+            onClick={() => setDropdownOpen((v) => !v)}
+            className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-left"
+          >
+            {selectedServices.length === 0
+              ? "Select services"
+              : selectedServices.join(", ")}
+          </button>
+
+          {dropdownOpen && (
+            <div className="mt-2 rounded-xl border border-slate-200 bg-white shadow-lg max-h-64 overflow-y-auto">
+              {SERVICES.map((s) => (
+                <label
+                  key={s.key}
+                  className="flex items-center gap-3 px-4 py-3 hover:bg-slate-50 cursor-pointer"
                 >
-                  Contact us
-                </button>
-
-                <p className="mt-4 text-center text-xs text-slate-500">
-                  Response within 24 hours
-                </p>
-              </form>
+                  <input
+                    type="checkbox"
+                    checked={selectedServices.includes(s.label)}
+                    onChange={() => toggleService(s.label)}
+                    className="accent-[#2BB673]"
+                  />
+                  <span className="text-sm text-slate-700">
+                    {s.label}
+                  </span>
+                </label>
+              ))}
             </div>
+          )}
+        </div>
+
+        {/* MESSAGE */}
+        <div>
+          <label className="block text-sm font-medium text-slate-700">
+            Additional information
+          </label>
+          <textarea
+            name="message"
+            rows={4}
+            className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+          />
+        </div>
+
+        {/* ERROR MESSAGE */}
+        {formStatus === "error" && (
+          <p className="text-sm text-red-600">{errorMessage}</p>
+        )}
+
+        {/* SUBMIT */}
+        <button
+          type="submit"
+          disabled={formStatus === "loading"}
+          className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866] disabled:opacity-60"
+        >
+          {formStatus === "loading" ? "Sending…" : "Contact us"}
+        </button>
+
+        <p className="mt-4 text-center text-xs text-slate-500">
+          Response within 24 hours
+        </p>
+      </form>
+    </>
+  )}
+
+
+            </div>
+            
           </div>
         </div>
       </section>
 
-      {/* IMAGE MODAL */}
-      {activeImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
-          onClick={() => setActiveImage(null)}
-        >
-          <img
-            src={activeImage}
-            alt="Preview"
-            className="max-h-[80vh] max-w-4xl rounded-2xl bg-white"
-          />
-        </div>
-      )}
     </main>
   );
 }
