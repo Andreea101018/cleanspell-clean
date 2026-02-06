@@ -25,12 +25,11 @@ export default function HeroDa() {
               Servicerer Sjælland – inden for 70 km fra København
             </p>
 
-            <h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
-              <span className="block font-normal text-white">
-                Dit rene rum starter her
-              </span>
-            </h1>
-
+<h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
+  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+    Dit rene rum starter her
+  </span>
+</h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
               Vi tilbyder professionel rengøring til private hjem og virksomheder
               – udført med omhu, stabil kvalitet og respekt for dit rum

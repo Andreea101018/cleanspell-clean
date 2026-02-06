@@ -27,11 +27,13 @@ export default function HeroEn() {
 </p>
 
 
-            <h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
-              <span className="block font-normal text-white">
-                Your clean space starts here
-              </span>
-            </h1>
+<h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
+  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+    Your clean space starts here
+  </span>
+</h1>
+
+
 
             <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
              We provide professional cleaning for homes and businesses, delivered with care, consistency, and respect for your space
