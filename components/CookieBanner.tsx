@@ -11,8 +11,8 @@ export default function CookieBanner() {
   const isEnglish = pathname.startsWith("/en");
 
   const cookieLink = isEnglish
-    ? "/en/privacy/cookies"
-    : "/dan/privatliv/cookies";
+    ? "/en/cookies"
+    : "/dan/cookies";
 
   const text = isEnglish
     ? {
