@@ -44,7 +44,7 @@ export default function Footer() {
 
               {/* SOCIAL MEDIA */}
               <div className="flex items-center gap-4 pt-1">
-                <a href="https://wa.me/4571316499?text=Hello%20I%20would%20like%20a%20cleaning%20offer" aria-label="WhatsApp" className="hover:opacity-80 transition">
+                <a href="https://wa.me/4571316499" aria-label="WhatsApp" className="hover:opacity-80 transition">
                   <Image src="/WhatsApp.png" alt="WhatsApp" width={28} height={28} />
                 </a>
                 <a href="https://www.instagram.com/cleanspell.dk/?fbclid=IwY2xjawPywlFleHRuA2FlbQIxMQBicmlkETBicXRHMzdkdTl5N1Nacktvc3J0YwZhcHBfaWQBMAABHs9ASMZNSt5dhfnxwiS52pxIMVE2HaP6_8Ay0timqQpcxNVwiT2vID5XcVNW_aem_dgoE-s-dU3oB7DY0TwZoiA" aria-label="Instagram" className="hover:opacity-80 transition">

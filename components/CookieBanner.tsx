@@ -9,7 +9,6 @@ export default function CookieBanner() {
   const pathname = usePathname();
 
   const isEnglish = pathname.startsWith("/en");
-  const isDanish = pathname.startsWith("/da");
 
   const cookieLink = isEnglish
     ? "/en/privacy/cookies"
@@ -31,6 +30,7 @@ export default function CookieBanner() {
         reject: "Afvis",
       };
 
+  /* ================= CHECK EXISTING CONSENT ================= */
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
@@ -38,13 +38,31 @@ export default function CookieBanner() {
     }
   }, []);
 
+  /* ================= ACCEPT COOKIES ================= */
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
+
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("consent", "update", {
+        ad_storage: "granted",
+        analytics_storage: "granted",
+      });
+    }
+
     setVisible(false);
   };
 
+  /* ================= REJECT COOKIES ================= */
   const rejectCookies = () => {
     localStorage.setItem("cookie-consent", "rejected");
+
+    if (typeof window !== "undefined" && (window as any).gtag) {
+      (window as any).gtag("consent", "update", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+    }
+
     setVisible(false);
   };
 
@@ -55,12 +73,10 @@ export default function CookieBanner() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
         <p className="text-sm text-slate-600 max-w-3xl">
           {text.description}{" "}
-          <Link
-            href={cookieLink}
-            className="underline hover:text-slate-900"
-          >
+          <Link href={cookieLink} className="underline hover:text-slate-900">
             {text.policy}
-          </Link>.
+          </Link>
+          .
         </p>
 
         <div className="flex gap-3">

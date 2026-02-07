@@ -1,40 +1,35 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
-
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // 🔴 REPLACE WITH YOUR REAL ID
 
 export default function GoogleAnalytics() {
-  const [consentGranted, setConsentGranted] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (consent === "accepted") {
-      setConsentGranted(true);
-    }
-  }, []);
-
-  if (!consentGranted) return null;
-
   return (
     <>
-      {/* Load GA script */}
+      {/* Load gtag */}
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        src="https://www.googletagmanager.com/gtag/js?id=G-M0J2CMJ7TL"
         strategy="afterInteractive"
       />
 
-      {/* Initialize GA */}
-      <Script id="ga-init" strategy="afterInteractive">
+      {/* Init + Consent Mode */}
+      <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
+
+          // 👇 DEFAULT: NO CONSENT
+          gtag('consent', 'default', {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted'
+          });
+
           gtag('js', new Date());
 
-          gtag('config', '${GA_MEASUREMENT_ID}', {
-            anonymize_ip: true
-          });
+          // Configs (won't collect until consent is granted)
+          gtag('config', 'G-M0J2CMJ7TL', { anonymize_ip: true });
+          gtag('config', 'AW-17938617642');
         `}
       </Script>
     </>

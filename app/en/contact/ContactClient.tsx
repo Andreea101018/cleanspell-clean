@@ -176,39 +176,57 @@ const [errorMessage, setErrorMessage] = useState("");
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {[
-                    { src: "/WhatsApp.png", 
-                      label: "WhatsApp",
-                      href: "https://wa.me/4571316499?text=Hello%20I%20would%20like%20a%20cleaning%20offer" },
+{[
+  {
+    src: "/WhatsApp.png",
+    label: "WhatsApp",
+    href: "https://wa.me/4571316499",
+  },
+  {
+    src: "/Instagram_icon.svg",
+    label: "Instagram",
+    href: "https://www.instagram.com/cleanspell.dk/",
+  },
+  {
+    src: "/fb.webp",
+    label: "Facebook",
+    href: "https://www.facebook.com/profile.php?id=61587875840303",
+  },
+  {
+    src: "/tiktok.svg",
+    label: "TikTok",
+    href: "https://www.tiktok.com/@cleanspell",
+  },
+].map((item) => (
+  <a
+    key={item.label}
+    href={item.href}
+    onClick={() => {
+      if (
+        item.label === "WhatsApp" &&
+        typeof window !== "undefined" &&
+        (window as any).gtag
+      ) {
+        (window as any).gtag("event", "whatsapp_click", {
+          event_category: "engagement",
+          event_label: "contact_page",
+        });
+      }
+    }}
+    className="flex items-center gap-4 rounded-2xl border border-slate-200 p-5 hover:border-[#2BB673] transition"
+  >
+    <Image
+      src={item.src}
+      alt={item.label}
+      width={28}
+      height={28}
+    />
+    <span className="font-medium text-slate-800">
+      {item.label}
+    </span>
+  </a>
+))}
 
-                    { src: "/Instagram_icon.svg",
-                      label: "Instagram",
-                      href: "https://www.instagram.com/cleanspell.dk/?fbclid=IwY2xjawPywlFleHRuA2FlbQIxMQBicmlkETBicXRHMzdkdTl5N1Nacktvc3J0YwZhcHBfaWQBMAABHs9ASMZNSt5dhfnxwiS52pxIMVE2HaP6_8Ay0timqQpcxNVwiT2vID5XcVNW_aem_dgoE-s-dU3oB7DY0TwZoiA"},
-
-                    { src: "/fb.webp", 
-                      label: "Facebook",
-                      href: "https://www.facebook.com/profile.php?id=61587875840303" },
-
-                    { src: "/tiktok.svg", 
-                      label: "TikTok",
-                      href: "https://www.tiktok.com/@cleanspell?is_from_webapp=1&sender_device=pc" },
-                  ].map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="flex items-center gap-4 rounded-2xl border border-slate-200 p-5 hover:border-[#2BB673] transition"
-                    >
-                      <Image
-                        src={item.src}
-                        alt={item.label}
-                        width={28}
-                        height={28}
-                      />
-                      <span className="font-medium text-slate-800">
-                        {item.label}
-                      </span>
-                    </a>
-                  ))}
                 </div>
               </div>
             </div>
@@ -235,7 +253,7 @@ const [errorMessage, setErrorMessage] = useState("");
       </p>
 
       <a
-        href="https://wa.me/4571316499?text=Hello%20I%20just%20sent%20a%20message%20via%20your%20website"
+        href="https://wa.me/4571316499"
         target="_blank"
         rel="noopener noreferrer"
         className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 text-white font-semibold hover:bg-[#1ebe5d]"
@@ -319,6 +337,12 @@ const [errorMessage, setErrorMessage] = useState("");
             if (!res.ok) throw new Error();
 
             setFormStatus("success");
+            if (typeof window !== "undefined" && (window as any).gtag) {
+  (window as any).gtag("event", "generate_lead", {
+    send_to: "AW-1793861742",
+  });
+}
+
             form.reset();
             setSelectedServices([]);
             setDropdownOpen(false);
