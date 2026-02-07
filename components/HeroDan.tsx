@@ -16,7 +16,7 @@ export default function HeroDa() {
 
         {/* HERO CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto h-full px-8 flex items-center">
-          <div className="max-w-xl space-y-4">
+          <div className="max-w-3xl space-y-4">
             <p className="text-xs uppercase tracking-[0.25em] text-white!">
               Nordisk Renhed og Bygg ApS
             </p>
@@ -25,14 +25,15 @@ export default function HeroDa() {
               Servicerer Sjælland – inden for 70 km fra København
             </p>
 
-<h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
-  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-    Dit rene rum starter her
+
+<h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
+  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+    Rengøring sker ikke af sig selv. Derfor er det vigtigt at vælge rigtigt.
   </span>
 </h1>
             <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
               Vi tilbyder professionel rengøring til private hjem og virksomheder
-              – udført med omhu, stabil kvalitet og respekt for dit rum
+              – udført med omhu, stabil kvalitet og respekt for dit rum.
             </p>
 
             <div className="pt-6 flex gap-6">

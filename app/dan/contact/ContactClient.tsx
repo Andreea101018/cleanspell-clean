@@ -92,25 +92,19 @@ export default function ContactClient() {
                 vender tilbage med et klart og skræddersyet tilbud
               </p>
 
-              <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Det er helt gratis at tage kontakt – og uden forpligtelser
-              </p>
+ 
 
               {/* TRUST LIST */}
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3">
+                                <li className="flex items-start gap-3">
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
                   <span className="text-[#475569] leading-snug">
-                    Dækker Sjælland – inden for 70 km fra København
+                    Det er helt gratis at tage kontakt – og uden forpligtelser
                   </span>
                 </li>
 
-                <li className="flex items-start gap-3">
-                  <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
-                  <span className="text-[#475569] leading-snug">
-                    Fokus på tillid, gennemsigtighed og stabil kvalitet
-                  </span>
-                </li>
+
+
 
                 <li className="flex items-start gap-3">
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
@@ -123,6 +117,12 @@ export default function ContactClient() {
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
                   <span className="text-[#475569] leading-snug">
                     Ingen binding eller skjulte gebyrer
+                  </span>
+                </li>
+                                <li className="flex items-start gap-3">
+                  <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
+                  <span className="text-[#475569] leading-snug">
+                    Dækker Sjælland – inden for 70 km fra København
                   </span>
                 </li>
               </ul>
@@ -242,9 +242,41 @@ export default function ContactClient() {
                 </div>
               ) : (
                 <>
-                  <h2 className="text-2xl font-semibold text-[#1F2E45]">
-                    Få et personligt tilbud
-                  </h2>
+
+<section className="relative overflow-hidden border-y border-slate-200">
+  {/* Baggrundsbillede – blødt og roligt */}
+  <div
+    className="absolute inset-0 bg-cover bg-center blur-[4px] scale-105"
+    style={{ backgroundImage: "url('/combine.png')" }}
+  />
+
+  {/* Blid neutral overlay */}
+  <div className="absolute inset-0 bg-slate-50/80" />
+
+  {/* Indhold */}
+  <div className="relative max-w-4xl mx-auto px-8 py-24 text-center">
+    {/* Elegant glas-kort */}
+    <div
+      className="inline-block rounded-2xl bg-white/90 backdrop-blur-md px-10 py-12
+                 border-2 border-green-600/30"
+    >
+      <p className="text-xs uppercase tracking-widest text-slate-500 font-medium">
+        En lille påmindelse
+      </p>
+
+      <h2 className="mt-4 text-3xl md:text-4xl font-semibold text-slate-900">
+        Tøver du stadig?
+      </h2>
+
+      <p className="mt-6 text-lg text-slate-600">
+        At udsætte det er ikke en løsning.{" "}
+        <span className="text-green-700 font-semibold">
+          Det nemmeste tidspunkt er nu.
+        </span>
+      </p>
+    </div>
+  </div>
+</section>
 
                   <form
                     className="mt-8 space-y-6"

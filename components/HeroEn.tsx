@@ -17,7 +17,7 @@ export default function HeroEn() {
 
         {/* HERO CONTENT */}
         <div className="relative z-10 max-w-7xl mx-auto h-full px-8 flex items-center">
-          <div className="max-w-xl space-y-4">
+          <div className="max-w-3xl space-y-4">
             <p className="text-xs uppercase tracking-[0.25em] text-white!">
               Nordisk Renhed og Bygg ApS
             </p>
@@ -27,16 +27,17 @@ export default function HeroEn() {
 </p>
 
 
-<h1 className="text-4xl md:text-5xl font-semibold leading-[1.05] text-white">
-  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-    Your clean space starts here
+<h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
+  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+    Cleaning doesn’t happen by itself. That’s why choosing right matters.
   </span>
 </h1>
 
 
 
+
             <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
-             We provide professional cleaning for homes and businesses, delivered with care, consistency, and respect for your space
+             We provide professional cleaning for homes and businesses, delivered with care, consistency, and respect for your space.
             </p>
 
             <div className="pt-6 flex gap-6">
