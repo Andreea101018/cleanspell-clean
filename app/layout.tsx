@@ -6,9 +6,6 @@ import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
-  title: "CleanSpell – Professionel rengøring i København",
-  description:
-  "Professionel rengøring i København og Sjælland. CleanSpell tilbyder privat og erhvervsrengøring med fokus på kvalitet og pålidelighed.",
   verification: {
     google: "xtUz93vdCNAiD39PDQ3QERNvJm0NAe9NvTNlVthkjuQ",
   },
@@ -20,9 +17,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="da">
+    <html>
       <head>
-        {/* JSON-LD: Brand / Organization */}
+        {/* Organization schema – neutral */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

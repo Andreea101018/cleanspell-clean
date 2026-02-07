@@ -1,29 +1,39 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Professional Cleaning Services in Copenhagen & Zealand | CleanSpell",
+  metadataBase: new URL("https://www.cleanspell.dk"),
+
+  title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
   description:
-    "CleanSpell provides professional residential and commercial cleaning across Zealand, within 70 km of Copenhagen. Reliable cleaning done with care, consistency, and eco-friendly products.",
+    "CleanSpell provides professional residential and commercial cleaning across Zealand, within 70 km of Copenhagen. Reliable cleaning with consistent quality and eco-friendly products.",
+
   alternates: {
-    canonical: "https://www.cleanspell.dk/en",
+    canonical: "/en",
+    languages: {
+      da: "/dan",
+      en: "/en",
+      "x-default": "/dan",
+    },
   },
+
   openGraph: {
-    title: "CleanSpell – Professional Cleaning Done Properly",
+    title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
     description:
-      "Professional cleaning for homes and businesses in Copenhagen and across Zealand. Transparent pricing, trained staff, and reliable results.",
-    url: "https://www.cleanspell.dk/en",
+      "Professional cleaning for homes and businesses in Copenhagen and across Zealand. Transparent pricing, trained staff, and dependable results.",
+    url: "/en",
     siteName: "CleanSpell",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://www.cleanspell.dk/o.png",
+        url: "/o.png",
         width: 1200,
         height: 630,
         alt: "Professional cleaning services by CleanSpell",
       },
     ],
   },
+
   robots: {
     index: true,
     follow: true,
