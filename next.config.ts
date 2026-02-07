@@ -18,6 +18,7 @@ const nextConfig: NextConfig = {
                 https://www.googletagmanager.com
                 https://www.google-analytics.com
                 https://www.googleadservices.com
+                https://pagead2.googlesyndication.com
                 https://googleads.g.doubleclick.net;
 
               connect-src
@@ -26,26 +27,30 @@ const nextConfig: NextConfig = {
                 https://region1.google-analytics.com
                 https://www.googletagmanager.com
                 https://www.googleadservices.com
-                https://www.google.com
+                https://pagead2.googlesyndication.com
                 https://googleads.g.doubleclick.net
-                https://pagead2.googlesyndication.com;
+                https://www.google.com;
 
               img-src
                 'self'
-                blob:
                 data:
+                blob:
                 https://www.google-analytics.com
+                https://www.googletagmanager.com
                 https://www.googleadservices.com
                 https://googleads.g.doubleclick.net
                 https://pagead2.googlesyndication.com;
 
               frame-src
-                https://www.googletagmanager.com
-                https://googleads.g.doubleclick.net
-                https://www.google.com;
+                https://www.googletagmanager.com;
 
-              style-src 'self' 'unsafe-inline';
-              font-src 'self' data:;
+              style-src
+                'self'
+                'unsafe-inline';
+
+              font-src
+                'self'
+                data:;
             `
               .replace(/\s{2,}/g, " ")
               .trim(),
