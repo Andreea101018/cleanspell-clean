@@ -39,6 +39,11 @@ const nextConfig: NextConfig = {
                 https://googleads.g.doubleclick.net
                 https://pagead2.googlesyndication.com;
 
+              frame-src
+                https://www.googletagmanager.com
+                https://googleads.g.doubleclick.net
+                https://www.google.com;
+
               style-src 'self' 'unsafe-inline';
               font-src 'self' data:;
             `
