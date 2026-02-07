@@ -337,11 +337,14 @@ const [errorMessage, setErrorMessage] = useState("");
             if (!res.ok) throw new Error();
 
             setFormStatus("success");
-            if (typeof window !== "undefined" && (window as any).gtag) {
-  (window as any).gtag("event", "generate_lead", {
-    send_to: "AW-1793861742",
+if (typeof window !== "undefined" && (window as any).gtag) {
+  (window as any).gtag("event", "conversion", {
+    send_to: "AW-17938617642/Wa4cCO3bvfQbERqq5ulC",
+    value: 1.0,
+    currency: "DKK",
   });
 }
+
 
             form.reset();
             setSelectedServices([]);

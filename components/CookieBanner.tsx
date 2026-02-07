@@ -17,20 +17,20 @@ export default function CookieBanner() {
   const text = isEnglish
     ? {
         description:
-          "We use cookies for analytics purposes to understand how our website is used and to improve our services. You can read more in our",
+          "We use cookies for analytics and advertising purposes to understand how our website is used and to improve our services. You can read more in our",
         policy: "Cookie Policy",
         accept: "Accept",
         reject: "Reject",
       }
     : {
         description:
-          "Vi bruger cookies til analyseformål for at forstå, hvordan vores hjemmeside bruges, og for at forbedre vores services. Du kan læse mere i vores",
+          "Vi bruger cookies til analyse- og markedsføringsformål for at forstå, hvordan vores hjemmeside bruges, og for at forbedre vores services. Du kan læse mere i vores",
         policy: "Cookiepolitik",
         accept: "Accepter",
         reject: "Afvis",
       };
 
-  /* ================= CHECK EXISTING CONSENT ================= */
+  /* ===== CHECK EXISTING CONSENT ===== */
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
@@ -38,7 +38,7 @@ export default function CookieBanner() {
     }
   }, []);
 
-  /* ================= ACCEPT COOKIES ================= */
+  /* ===== ACCEPT COOKIES ===== */
   const acceptCookies = () => {
     localStorage.setItem("cookie-consent", "accepted");
 
@@ -52,7 +52,7 @@ export default function CookieBanner() {
     setVisible(false);
   };
 
-  /* ================= REJECT COOKIES ================= */
+  /* ===== REJECT COOKIES ===== */
   const rejectCookies = () => {
     localStorage.setItem("cookie-consent", "rejected");
 
