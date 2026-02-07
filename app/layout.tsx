@@ -6,9 +6,9 @@ import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 export const metadata = {
-  title: "CleanSpell – Professional Cleaning in Copenhagen",
-  description: "Professional and eco-friendly cleaning services in Copenhagen",
-
+  title: "CleanSpell – Professionel rengøring i København",
+  description:
+  "Professionel rengøring i København og Sjælland. CleanSpell tilbyder privat og erhvervsrengøring med fokus på kvalitet og pålidelighed.",
   verification: {
     google: "xtUz93vdCNAiD39PDQ3QERNvJm0NAe9NvTNlVthkjuQ",
   },
