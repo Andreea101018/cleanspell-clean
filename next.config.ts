@@ -16,7 +16,9 @@ const nextConfig: NextConfig = {
                 'unsafe-inline'
                 'unsafe-eval'
                 https://www.googletagmanager.com
-                https://www.google-analytics.com;
+                https://www.google-analytics.com
+                https://www.googleadservices.com
+                https://googleads.g.doubleclick.net;
 
               connect-src
                 'self'
@@ -24,22 +26,21 @@ const nextConfig: NextConfig = {
                 https://region1.google-analytics.com
                 https://www.googletagmanager.com
                 https://www.googleadservices.com
+                https://www.google.com
+                https://googleads.g.doubleclick.net
                 https://pagead2.googlesyndication.com;
 
               img-src
                 'self'
-                data:
                 blob:
+                data:
                 https://www.google-analytics.com
-                https://www.googletagmanager.com
-                https://googleads.g.doubleclick.net;
+                https://www.googleadservices.com
+                https://googleads.g.doubleclick.net
+                https://pagead2.googlesyndication.com;
 
-              frame-src
-                https://www.googletagmanager.com;
-
-              style-src
-                'self'
-                'unsafe-inline';
+              style-src 'self' 'unsafe-inline';
+              font-src 'self' data:;
             `
               .replace(/\s{2,}/g, " ")
               .trim(),
