@@ -21,6 +21,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="da">
+      <head>
+        {/* JSON-LD: Brand / Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "CleanSpell",
+              url: "https://www.cleanspell.dk",
+              logo: "https://www.cleanspell.dk/favicon.ico",
+            }),
+          }}
+        />
+      </head>
+
       <body>
         <LanguageProvider>
           <Header />
