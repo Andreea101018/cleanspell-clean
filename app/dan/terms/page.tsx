@@ -21,7 +21,7 @@ export default function TermsAndConditionsDa() {
           CleanSpell drives af Nordisk Renhed og Bygg ApS<br />
           CVR: 45400018<br />
           Adresse: Sporstræde 39, 2640 Hedehusene<br />
-          Email Address: info@nordiskrenhedogbygg.dk<br />
+          Email Address: info@cleanspell.dk<br />
           Telefon: +45 71 31 64 99
         </p>
 

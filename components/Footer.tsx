@@ -110,7 +110,7 @@ export default function Footer() {
                   Sporstræde 39,<br />
                   2640 Hedehusene
                 </li>
-                <li>Email Address: info@nordiskrenhedogbygg.dk</li>
+                <li>Email Address: info@cleanspell.dk</li>
                 <li>
                   <a href="tel:+4571316499" className="hover:underline">
                     +45 71 31 64 99

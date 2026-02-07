@@ -149,7 +149,7 @@ export default function ContactClient() {
                     href="mailto:info@nordiskrenhedogbygg.dk"
                     className="text-[#2BB673] hover:underline"
                   >
-                    info@nordiskrenhedogbygg.dk
+                    info@cleanspell.dk
                   </a>
                 </p>
                 <p>
