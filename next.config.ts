@@ -10,18 +10,36 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy",
             value: `
               default-src 'self';
-              img-src 'self' blob: data: https://www.google-analytics.com;
-              media-src 'self' blob:;
+
               script-src
                 'self'
                 'unsafe-inline'
                 'unsafe-eval'
-                https://www.googletagmanager.com;
+                https://www.googletagmanager.com
+                https://www.google-analytics.com;
+
               connect-src
                 'self'
                 https://www.google-analytics.com
+                https://region1.google-analytics.com
+                https://www.googletagmanager.com
+                https://www.googleadservices.com
+                https://pagead2.googlesyndication.com;
+
+              img-src
+                'self'
+                data:
+                blob:
+                https://www.google-analytics.com
+                https://www.googletagmanager.com
+                https://googleads.g.doubleclick.net;
+
+              frame-src
                 https://www.googletagmanager.com;
-              style-src 'self' 'unsafe-inline';
+
+              style-src
+                'self'
+                'unsafe-inline';
             `
               .replace(/\s{2,}/g, " ")
               .trim(),
