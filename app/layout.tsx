@@ -5,11 +5,13 @@ import { LanguageProvider } from "@/lib/LanguageContext";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-
-
 export const metadata = {
   title: "CleanSpell – Professional Cleaning in Copenhagen",
   description: "Professional and eco-friendly cleaning services in Copenhagen",
+
+  verification: {
+    google: "xtUz93vdCNAiD39PDQ3QERNvJm0NAe9NvTNlVthkjuQ",
+  },
 };
 
 export default function RootLayout({
