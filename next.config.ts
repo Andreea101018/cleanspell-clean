@@ -29,7 +29,9 @@ const nextConfig: NextConfig = {
                 https://www.googleadservices.com
                 https://pagead2.googlesyndication.com
                 https://googleads.g.doubleclick.net
-                https://www.google.com;
+                https://stats.g.doubleclick.net
+                https://www.google.com
+                https://www.google.dk;
 
               img-src
                 'self'
@@ -39,10 +41,14 @@ const nextConfig: NextConfig = {
                 https://www.googletagmanager.com
                 https://www.googleadservices.com
                 https://googleads.g.doubleclick.net
-                https://pagead2.googlesyndication.com;
+                https://pagead2.googlesyndication.com
+                https://stats.g.doubleclick.net
+                https://www.google.com
+                https://www.google.dk;
 
               frame-src
-                https://www.googletagmanager.com;
+                https://www.googletagmanager.com
+                https://googleads.g.doubleclick.net;
 
               style-src
                 'self'
