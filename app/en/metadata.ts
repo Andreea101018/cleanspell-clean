@@ -1,42 +1,24 @@
 import type { Metadata } from "next";
+import { languageAlternates } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.cleanspell.dk"),
-
   title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
   description:
-    "Professional residential and commercial cleaning in Copenhagen and across Zealand. Reliable service, transparent pricing, and consistent quality.",
+    "Professional residential and commercial cleaning services in Copenhagen and across Zealand.",
 
-  // ⚠️ IMPORTANT:
-  // ❌ FĂRĂ canonical aici
-  // ❌ FĂRĂ x-default
-  alternates: {
-    languages: {
-      da: "/dan",
-      en: "/en",
-    },
-  },
+  alternates: languageAlternates(""),
 
   openGraph: {
-    title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
+    title: "Professional Cleaning | CleanSpell",
     description:
-      "Professional cleaning for homes and businesses in Copenhagen and across Zealand. Trusted service with trained staff and dependable results.",
-    url: "/en",
-    siteName: "CleanSpell",
+      "Trusted cleaning services for homes and businesses in Copenhagen.",
+    url: "https://www.cleanspell.dk/en",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/o.png",
-        width: 1200,
-        height: 630,
-        alt: "Professional cleaning services by CleanSpell",
-      },
-    ],
   },
 
   robots: {
-    index: true,   // ENG rămâne indexabil
+    index: true,
     follow: true,
   },
 };

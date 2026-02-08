@@ -8,14 +8,17 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cleanspell.dk"),
+
   verification: {
     google: "xtUz93vdCNAiD39PDQ3QERNvJm0NAe9NvTNlVthkjuQ",
   },
+
   robots: {
-    index: true,
+    index: false, // root (/) NU se indexează
     follow: true,
   },
 };
+
 
 export default function RootLayout({
   children,
@@ -23,7 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning>
+    <html lang="da" suppressHydrationWarning>
+
       <body>
         {/* Organization schema – neutral */}
         <script
