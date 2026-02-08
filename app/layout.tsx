@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/lib/LanguageContext";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
-
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,15 +17,14 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <head>
+    <html suppressHydrationWarning>
+      <body>
         {/* Organization schema – neutral */}
         <script
           type="application/ld+json"
@@ -40,9 +38,7 @@ export default function RootLayout({
             }),
           }}
         />
-      </head>
 
-      <body>
         <LanguageProvider>
           <Header />
           <main>{children}</main>

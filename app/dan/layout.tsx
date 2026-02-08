@@ -5,5 +5,5 @@ export default function DanLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <html lang="da"><body>{children}</body></html>;
+  return <>{children}</>;
 }
