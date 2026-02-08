@@ -337,13 +337,20 @@ const [errorMessage, setErrorMessage] = useState("");
             if (!res.ok) throw new Error();
 
             setFormStatus("success");
-if (typeof window !== "undefined" && (window as any).gtag) {
+const consent = localStorage.getItem("cookie_consent");
+
+if (
+  consent === "granted" &&
+  typeof window !== "undefined" &&
+  (window as any).gtag
+) {
   (window as any).gtag("event", "conversion", {
     send_to: "AW-17938617642/Wa4cCO3bvfQbERqq5ulC",
     value: 1.0,
     currency: "DKK",
   });
 }
+
 
 
             form.reset();
