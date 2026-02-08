@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { SERVICES } from "@/app/constants/services";
+import { SERVICES } from "@/app/constants/servicesdan";
 
 export default function ContactClient() {
   const searchParams = useSearchParams();
