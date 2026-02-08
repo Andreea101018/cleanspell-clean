@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   description:
     "CleanSpell leverer professionel rengøring til private og erhverv på hele Sjælland – inden for 70 km af København. Pålidelig rengøring med fokus på kvalitet, stabilitet og miljøvenlige produkter.",
 
+  // ✅ DAN este pagina principală (canonical)
   alternates: {
     canonical: "/dan",
     languages: {
       da: "/dan",
       en: "/en",
-      "x-default": "/dan",
     },
   },
 

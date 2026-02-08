@@ -5,21 +5,22 @@ export const metadata: Metadata = {
 
   title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
   description:
-    "CleanSpell provides professional residential and commercial cleaning across Zealand, within 70 km of Copenhagen. Reliable cleaning with consistent quality and eco-friendly products.",
+    "Professional residential and commercial cleaning in Copenhagen and across Zealand. Reliable service, transparent pricing, and consistent quality.",
 
+  // ⚠️ IMPORTANT:
+  // ❌ FĂRĂ canonical aici
+  // ❌ FĂRĂ x-default
   alternates: {
-    canonical: "/en",
     languages: {
       da: "/dan",
       en: "/en",
-      "x-default": "/dan",
     },
   },
 
   openGraph: {
     title: "Professional Cleaning in Copenhagen & Zealand | CleanSpell",
     description:
-      "Professional cleaning for homes and businesses in Copenhagen and across Zealand. Transparent pricing, trained staff, and dependable results.",
+      "Professional cleaning for homes and businesses in Copenhagen and across Zealand. Trusted service with trained staff and dependable results.",
     url: "/en",
     siteName: "CleanSpell",
     locale: "en_US",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
   },
 
   robots: {
-    index: true,
+    index: true,   // ENG rămâne indexabil
     follow: true,
   },
 };

@@ -5,11 +5,19 @@ import { LanguageProvider } from "@/lib/LanguageContext";
 import CookieBanner from "@/components/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.cleanspell.dk"),
   verification: {
     google: "xtUz93vdCNAiD39PDQ3QERNvJm0NAe9NvTNlVthkjuQ",
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
+
 
 export default function RootLayout({
   children,
