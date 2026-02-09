@@ -17,14 +17,25 @@ export default function CookieBanner() {
     }
   }, []);
 
-  const applyConsent = (consent: ConsentState) => {
-    if (typeof window === "undefined" || !(window as any).gtag) return;
+ const applyConsent = (consent: ConsentState) => {
+  if (typeof window === "undefined") return;
 
-    (window as any).gtag("consent", "update", {
-      ad_storage: consent,
-      analytics_storage: consent,
-    });
-  };
+  const gtag = (window as any).gtag;
+
+  if (!gtag) {
+    // retry până când gtag este disponibil
+    setTimeout(() => applyConsent(consent), 200);
+    return;
+  }
+
+  gtag("consent", "update", {
+    ad_storage: consent,
+    analytics_storage: consent,
+    ad_user_data: consent,
+    ad_personalization: consent,
+  });
+};
+
 
   const acceptCookies = () => {
     localStorage.setItem("cookie_consent", "granted");
