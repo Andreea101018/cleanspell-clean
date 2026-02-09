@@ -44,6 +44,22 @@ export default function ContactClient() {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
+    // ✅ Fire Google Ads conversion AFTER React has applied success state
+  useEffect(() => {
+    if (
+      formStatus === "success" &&
+      typeof window !== "undefined" &&
+      (window as any).gtag
+    ) {
+      (window as any).gtag("event", "conversion", {
+        send_to: "AW-17938617642/Wa4cCO3bvfQbERqq5ulC",
+        value: 1.0,
+        currency: "DKK",
+      });
+    }
+  }, [formStatus]);
+
+
   const toggleService = (label: string) => {
     setSelectedServices((prev) =>
       prev.includes(label)
@@ -316,21 +332,6 @@ export default function ContactClient() {
                         if (!res.ok) throw new Error();
 
                         setFormStatus("success");
-const consent = localStorage.getItem("cookie_consent");
-
-if (
-  consent === "granted" &&
-  typeof window !== "undefined" &&
-  (window as any).gtag
-) {
-  (window as any).gtag("event", "conversion", {
-    send_to: "AW-17938617642/Wa4cCO3bvfQbERqq5ulC",
-    value: 1.0,
-    currency: "DKK",
-  });
-}
-
-
 
                         form.reset();
                         setSelectedServices([]);
