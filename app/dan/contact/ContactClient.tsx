@@ -237,39 +237,59 @@ export default function ContactClient() {
 
             {/* ================= RIGHT – FORM ================= */}
             <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-10">
-              {formStatus === "success" ? (
-                <div className="text-center py-16">
-                  <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#2BB673]/10">
-                    <span className="text-3xl">✅</span>
-                  </div>
+{formStatus === "success" ? (
+  <div className="text-center py-16">
+    <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#2BB673]/10">
+      <span className="text-3xl">✅</span>
+    </div>
 
-                  <h2 className="text-2xl font-semibold text-[#1F2E45]">
-                    Tak for din henvendelse!
-                  </h2>
+    <h2 className="text-2xl font-semibold text-[#1F2E45]">
+      Din forespørgsel er blevet registreret med succes
+    </h2>
 
-                  <p className="mt-4 text-slate-600">
-                    Din besked er sendt.
-                    <br />
-                    Vi vender tilbage inden for 24 timer.
-                  </p>
+    <div className="mt-6 text-slate-600 leading-relaxed max-w-lg mx-auto space-y-4">
+      <p>
+        Nu kan du gøre <span className="font-semibold text-[#1F2E45]">CleanSpell</span> 
+        til en reel fordel for dig selv.
+      </p>
 
-                  <a
-                    href="https://wa.me/4571316499"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 inline-flex items-center justify-center rounded-xl bg-[#25D366] px-6 py-3 text-white font-semibold hover:bg-[#1ebe5d]"
-                  >
-                    Fortsæt på WhatsApp
-                  </a>
+      <p>
+        For hver ny kunde, du anbefaler, som booker en service hos os,
+        modtager du <span className="font-semibold text-[#2BB673]">300 DKK i personlig kredit </span> 
+         til din næste rengøring.
+      </p>
 
-                  <button
-                    onClick={() => setFormStatus("idle")}
-                    className="mt-6 block text-sm text-[#2BB673] underline mx-auto"
-                  >
-                    Send en ny besked
-                  </button>
-                </div>
-              ) : (
+      <p className="font-medium text-[#1F2E45]">
+        Ingen komplikationer. Ingen skjulte betingelser.
+      </p>
+
+      <p>
+        Jo mere du anbefaler, desto mere sparer du.
+      </p>
+
+      <p className="font-semibold text-[#1F2E45]">
+        Det er enkelt: Du anbefaler. Vi belønner.
+      </p>
+    </div>
+
+    <div className="mt-10">
+      <p className="text-sm text-slate-500">
+        CleanSpell
+      </p>
+      <p className="text-sm text-slate-500">
+        Kvalitet der giver dig fordele
+      </p>
+    </div>
+
+    <button
+      onClick={() => setFormStatus("idle")}
+      className="mt-8 inline-flex items-center justify-center rounded-xl border border-[#2BB673] px-6 py-3 text-[#2BB673] font-semibold hover:bg-[#2BB673]/10 transition"
+    >
+      Send en ny besked
+    </button>
+  </div>
+) : (
+
                 <>
 
 <section className="relative overflow-hidden border-y border-slate-200">
