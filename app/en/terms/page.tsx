@@ -22,7 +22,6 @@ export default function TermsAndConditionsEn() {
           CVR: 45400018<br />
           Address: Sporstræde 39, 2640 Hedehusene<br />
           Email Address: info@cleanspell.dk<br />
-          Phone: +45 71 31 64 99
         </p>
 
         <h2 className="text-xl font-semibold mt-10 mb-3">
