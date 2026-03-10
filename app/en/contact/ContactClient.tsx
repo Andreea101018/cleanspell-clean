@@ -112,11 +112,11 @@ const [errorMessage, setErrorMessage] = useState("");
               </div>
 
               <h1 className="mt-10 text-4xl font-semibold text-[#1F2E45] leading-tight">
-                A cleaner space starts with a simple conversation
+                A cleaner space starts with a simple message
               </h1>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                When you contact us, we take the time to understand your needs and get back to you with a clear, tailored offer
+                Send us a message using the form and we’ll review your request and reply by email with a clear, tailored offer
               </p>
               
 
@@ -163,18 +163,9 @@ const [errorMessage, setErrorMessage] = useState("");
               {/* CONTACT DETAILS */}
               <div className="mt-12 border-t border-slate-200 pt-8 space-y-2 text-slate-700">
                 <p>
-                  <strong>Phone:</strong>{" "}
-                  <a
-                    href="tel:+4512345678"
-                    className="text-[#2BB673] hover:underline"
-                  >
-                    +45 71 31 64 99
-                  </a>
-                </p>
-                <p>
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:info@nordiskrenhedogbygg.dk"
+                    href="mailto:info@cleanspell.dk"
                     className="text-[#2BB673] hover:underline"
                   >
                     info@cleanspell.dk
@@ -193,11 +184,6 @@ const [errorMessage, setErrorMessage] = useState("");
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 {[
-  {
-    src: "/WhatsApp.png",
-    label: "WhatsApp",
-    href: "https://wa.me/4571316499",
-  },
   {
     src: "/Instagram_icon.svg",
     label: "Instagram",
@@ -340,10 +326,16 @@ const [errorMessage, setErrorMessage] = useState("");
 
   <p className="mt-6 text-lg text-slate-600">
     Postponing isn’t a solution.{" "}
+    <br />
     <span className="text-green-700 font-semibold">
       The easiest moment is now.
     </span>
   </p>
+
+  <p className="text-sm text-slate-600">
+Fill in the form below and we’ll reply by email within a few hours.
+</p>
+
 </div>
 
 
@@ -384,23 +376,23 @@ const [errorMessage, setErrorMessage] = useState("");
           } catch {
             setFormStatus("error");
             setErrorMessage(
-              "Something went wrong. Please try again or contact us on WhatsApp."
+              "Something went wrong. Please try sending the form again or email us directly."
             );
           }
         }}
       >
         {/* BASIC FIELDS */}
         {[
-          { label: "Name", type: "text", name: "name" },
-          { label: "Email", type: "email", name: "email" },
-          { label: "Phone number", type: "tel", name: "phone" },
+          { label: "Name", type: "text", name: "name" , required: true },
+          { label: "Email", type: "email", name: "email" , required: true },
+          { label: "Phone number (optional)", type: "tel", name: "phone", required: false },
         ].map((field) => (
           <div key={field.name}>
             <label className="block text-sm font-medium text-slate-700">
               {field.label}
             </label>
             <input
-              required
+              required={field.required}
               type={field.type}
               name={field.name}
               className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
@@ -469,11 +461,11 @@ const [errorMessage, setErrorMessage] = useState("");
           disabled={formStatus === "loading"}
           className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866] disabled:opacity-60"
         >
-          {formStatus === "loading" ? "Sending…" : "Contact us"}
+          {formStatus === "loading" ? "Sending…" : "Send message"}
         </button>
 
         <p className="mt-4 text-center text-xs text-slate-500">
-          Response within 24 hours
+          Fast response — within a few hours
         </p>
       </form>
     </>

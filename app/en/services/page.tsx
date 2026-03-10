@@ -284,7 +284,7 @@ export default function ServicesPage() {
               </Link>
 
               <p className="mt-3 text-xs text-[#64748B]">
-                No obligation · Response within 24 hours
+                No obligation · Response within a few hours
               </p>
             </div>
           )}

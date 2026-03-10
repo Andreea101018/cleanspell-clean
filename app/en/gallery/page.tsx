@@ -258,7 +258,7 @@ export default function GalleryPage() {
             </a>
 
             <p className="mt-6 text-sm text-slate-500">
-              Response within 24 hours
+              Fast response — within a few hours
             </p>
           </div>
         </div>

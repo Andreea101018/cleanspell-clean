@@ -243,7 +243,7 @@ As the company grew, cleaning and painting were developed into dedicated service
             </a>
 
             <p className="mt-6 text-sm text-slate-500">
-              Response within 24 hours
+              Fast response — within a few hours
             </p>
           </div>
         </div>

@@ -89,7 +89,7 @@ export default function WhyChooseUsDa() {
             </div>
 
             <p className="mt-6 text-sm text-[#9CA3AF]">
-              Svar inden for 24 timer
+              Hurtigt svar — inden for få timer
             </p>
           </div>
         </div>

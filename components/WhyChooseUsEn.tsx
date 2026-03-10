@@ -90,7 +90,7 @@ done with care, good products, and attention to the little details
             </div>
 
             <p className="mt-6 text-sm text-[#9CA3AF]">
-              Response within 24 hours
+              Fast response — within a few hours
             </p>
           </div>
         </div>

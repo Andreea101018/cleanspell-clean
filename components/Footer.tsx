@@ -44,9 +44,6 @@ export default function Footer() {
 
               {/* SOCIAL MEDIA */}
               <div className="flex items-center gap-4 pt-1">
-                <a href="https://wa.me/4571316499" aria-label="WhatsApp" className="hover:opacity-80 transition">
-                  <Image src="/WhatsApp.png" alt="WhatsApp" width={28} height={28} />
-                </a>
                 <a href="https://www.instagram.com/cleanspell.dk/?fbclid=IwY2xjawPywlFleHRuA2FlbQIxMQBicmlkETBicXRHMzdkdTl5N1Nacktvc3J0YwZhcHBfaWQBMAABHs9ASMZNSt5dhfnxwiS52pxIMVE2HaP6_8Ay0timqQpcxNVwiT2vID5XcVNW_aem_dgoE-s-dU3oB7DY0TwZoiA" aria-label="Instagram" className="hover:opacity-80 transition">
                   <Image src="/Instagram_icon.svg" alt="Instagram" width={28} height={28} />
                 </a>
@@ -111,11 +108,6 @@ export default function Footer() {
                   2640 Hedehusene
                 </li>
                 <li>Email Address: info@cleanspell.dk</li>
-                <li>
-                  <a href="tel:+4571316499" className="hover:underline">
-                    +45 71 31 64 99
-                  </a>
-                </li>
 
                 {/* OPENING HOURS */}
                 <li className="pt-2">

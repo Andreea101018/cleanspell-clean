@@ -280,7 +280,7 @@ export default function ServicesPage() {
               </Link>
 
               <p className="mt-3 text-xs text-[#64748B]">
-                Uforpligtende · Svar inden for 24 timer
+                Uforpligtende · Hurtigt svar — inden for få timer
               </p>
             </div>
           )}

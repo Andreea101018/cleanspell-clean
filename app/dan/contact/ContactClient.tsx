@@ -100,14 +100,16 @@ export default function ContactClient() {
               </div>
 
               <h1 className="mt-10 text-4xl font-semibold text-[#1F2E45] leading-tight">
-                Et renere rum starter med en enkel samtale
+                Et renere rum starter med en enkelt besked
               </h1>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Når du kontakter os, tager vi os tid til at forstå dine behov og
-                vender tilbage med et klart og skræddersyet tilbud
+                Send os en besked via formularen, så gennemgår vi din forespørgsel og vender tilbage på e-mail med et klart og skræddersyet tilbud.
               </p>
 
+              <p className="mt-4 text-sm text-slate-600">
+              Udfyld formularen nedenfor, så svarer vi på e-mail inden for få timer.
+              </p>
  
 
               {/* TRUST LIST */}
@@ -115,7 +117,7 @@ export default function ContactClient() {
                                 <li className="flex items-start gap-3">
                   <span className="mt-[6px] h-2 w-2 rounded-full bg-[#2BB673]" />
                   <span className="text-[#475569] leading-snug">
-                    Det er helt gratis at tage kontakt – og uden forpligtelser
+                    Det er helt gratis at kontakte os – og uden forpligtelser
                   </span>
                 </li>
 
@@ -151,18 +153,9 @@ export default function ContactClient() {
               {/* CONTACT DETAILS */}
               <div className="mt-12 border-t border-slate-200 pt-8 space-y-2 text-slate-700">
                 <p>
-                  <strong>Telefon:</strong>{" "}
-                  <a
-                    href="tel:+4571316499"
-                    className="text-[#2BB673] hover:underline"
-                  >
-                    +45 71 31 64 99
-                  </a>
-                </p>
-                <p>
                   <strong>Email:</strong>{" "}
                   <a
-                    href="mailto:info@nordiskrenhedogbygg.dk"
+                    href="mailto:info@cleanspell.dk"
                     className="text-[#2BB673] hover:underline"
                   >
                     info@cleanspell.dk
@@ -181,11 +174,6 @@ export default function ContactClient() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
 {[
-  {
-    src: "/WhatsApp.png",
-    label: "WhatsApp",
-    href: "https://wa.me/4571316499",
-  },
   {
     src: "/Instagram_icon.svg",
     label: "Instagram",
@@ -359,22 +347,22 @@ export default function ContactClient() {
                       } catch {
                         setFormStatus("error");
                         setErrorMessage(
-                          "Noget gik galt. Prøv igen eller kontakt os via WhatsApp."
+                          "Noget gik galt. Prøv at sende formularen igen eller skriv til os via email."
                         );
                       }
                     }}
                   >
                     {[ 
-                      { label: "Navn", type: "text", name: "name" },
-                      { label: "Email", type: "email", name: "email" },
-                      { label: "Telefonnummer", type: "tel", name: "phone" },
+                      { label: "Navn", type: "text", name: "name", required: true },
+                      { label: "Email", type: "email", name: "email", required: true },
+                      { label: "Telefonnummer (valgfrit)", type: "tel", name: "phone", required: false },
                     ].map((field) => (
                       <div key={field.name}>
                         <label className="block text-sm font-medium text-slate-700">
                           {field.label}
                         </label>
                         <input
-                          required
+                          required={field.required}
                           type={field.type}
                           name={field.name}
                           className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
@@ -439,11 +427,11 @@ export default function ContactClient() {
                       disabled={formStatus === "loading"}
                       className="w-full rounded-xl bg-[#2BB673] py-4 text-white font-semibold hover:bg-[#26a866] disabled:opacity-60"
                     >
-                      {formStatus === "loading" ? "Sender…" : "Kontakt os"}
+                      {formStatus === "loading" ? "Sender…" : "Send besked"}
                     </button>
 
                     <p className="mt-4 text-center text-xs text-slate-500">
-                      Svar inden for 24 timer
+                      Hurtigt svar — inden for få timer
                     </p>
                   </form>
                 </>

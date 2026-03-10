@@ -226,7 +226,7 @@ export default function GalleryPageDa() {
             </a>
 
             <p className="mt-6 text-sm text-slate-500">
-              Svar inden for 24 timer
+              Hurtigt svar — inden for få timer
             </p>
           </div>
         </div>
