@@ -406,15 +406,17 @@ export default function ContactClient() {
                         </div>
                       )}
                     </div>
-
                     <div>
                       <label className="block text-sm font-medium text-slate-700">
-                        Yderligere information
+                        Beskriv hvilken rengøring du har brug for
                       </label>
+
                       <textarea
                         name="message"
+                        required
                         rows={4}
-                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+                        placeholder="Forklar kort hvilken type rengøring du har brug for, hvor stort området er, og eventuelle særlige ønsker."
+                        className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
                       />
                     </div>
 

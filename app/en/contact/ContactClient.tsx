@@ -441,12 +441,15 @@ Fill in the form below and we’ll reply by email within a few hours.
         {/* MESSAGE */}
         <div>
           <label className="block text-sm font-medium text-slate-700">
-            Additional information
+            Describe the cleaning service you need
           </label>
+
           <textarea
             name="message"
+            required
             rows={4}
-            className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3"
+            placeholder="Briefly explain what type of cleaning you need, the size of the space, and any special requests."
+            className="mt-2 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 focus:ring-2 focus:ring-[#2BB673]"
           />
         </div>
 
