@@ -17,6 +17,49 @@ export default function AboutPageDa() {
 
   return (
     <main className="bg-white text-[#1F2E45]">
+
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CleaningService",
+      name: "CleanSpell",
+      image: "https://www.cleanspell.dk/logo.png",
+      url: "https://www.cleanspell.dk",
+      email: "info@cleanspell.dk",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Sporstræde 39",
+        addressLocality: "Hedehusene",
+        postalCode: "2640",
+        addressCountry: "DK"
+      },
+      areaServed: [
+        "København","Hedehusene","Taastrup","Roskilde","Ballerup","Glostrup",
+        "Hvidovre","Albertslund","Brøndby","Ishøj","Greve","Vallensbæk",
+        "Herlev","Rødovre","Frederiksberg","Gentofte","Lyngby","Bagsværd",
+        "Kastrup","Tårnby","Dragør","Solrød","Køge","Holbæk","Ringsted"
+      ],
+      serviceType: [
+        "Privat rengøring",
+        "Erhvervsrengøring",
+        "Kontorrengøring",
+        "Fraflytningsrengøring",
+        "Hovedrengøring",
+        "Vinduespudsning",
+        "Rengøring efter byggeri",
+        "Trappevask",
+        "Malerarbejde",
+        "Udendørs- og ekstra ydelser",
+        "Professionel rengøring",
+        "Bygning rengøring",
+        "Ejendomsrengøring"
+      ],
+      openingHours: "Mo-Fr 08:00-16:00"
+    })
+  }}
+/>
       {/* ================= HERO ================= */}
       <section className="relative bg-[#F5FBF8] overflow-hidden">
         {/* Soft decorative accent */}

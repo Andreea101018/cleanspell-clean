@@ -70,6 +70,18 @@ export default function ContactClient() {
 
   return (
     <main className="bg-white">
+
+      <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Kontakt CleanSpell",
+      "url": "https://www.cleanspell.dk/dan/contact"
+    })
+  }}
+/>
       {/* ================= CONTACT SECTION ================= */}
       <section
         className="relative overflow-hidden"
@@ -104,7 +116,11 @@ export default function ContactClient() {
               </h1>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Send os en besked via formularen, så gennemgår vi din forespørgsel og vender tilbage på e-mail med et klart og skræddersyet tilbud.
+              Send os en besked via formularen, så gennemgår vi din forespørgsel og vender tilbage på e-mail med et klart og skræddersyet tilbud. 
+
+              Vi tilbyder professionel rengøring til både private hjem og virksomheder i København, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup, Hvidovre, Albertslund, Brøndby, Ishøj og Greve samt resten af Sjælland.
+
+              Vores ydelser omfatter blandt andet privat rengøring, erhvervsrengøring, kontorrengøring, hovedrengøring og vinduespudsning – samt house cleaning og office cleaning til internationale kunder.
               </p>
 
               <p className="mt-4 text-sm text-slate-600">

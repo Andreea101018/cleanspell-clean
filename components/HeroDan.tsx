@@ -1,5 +1,6 @@
 "use client";
 
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -21,19 +22,19 @@ export default function HeroDa() {
               Nordisk Renhed og Bygg ApS
             </p>
 
-            <p className="text-xs tracking-widest uppercase text-white! mb-3">
-              Servicerer Sjælland – inden for 70 km fra København
+            <h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
+              Professionel rengøring i København og på Sjælland
+            </h1>
+
+            <p className="text-base md:text-xl font-bold leading-relaxed max-w-2xl !text-white">
+              Rengøring sker ikke af sig selv. Derfor er det vigtigt at vælge rigtigt.
             </p>
 
-
-<h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
-  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-    Rengøring sker ikke af sig selv. Derfor er det vigtigt at vælge rigtigt.
-  </span>
-</h1>
-            <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
+            <p className="text-base md:text-lg leading-relaxed max-w-3xl text-white!">
               Vi tilbyder professionel rengøring til private hjem og virksomheder
-              – udført med omhu, stabil kvalitet og respekt for dit rum.
+              i København, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup,
+              Hvidovre, Albertslund, Ishoj, Brøndby og resten af Sjælland - udført med
+              omhu, stabil kvalitet og respekt for dit rum.
             </p>
 
             <div className="pt-6 flex gap-6">
@@ -54,6 +55,8 @@ export default function HeroDa() {
           </div>
         </div>
       </div>
+
+
 
       {/* FEATURE CARDS */}
       <div className="relative z-20 -mt-24">

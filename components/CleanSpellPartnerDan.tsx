@@ -15,20 +15,26 @@ export default function CleanSpellPartnerDa() {
 
           <div className="mt-8 space-y-6 text-[#475569] leading-relaxed">
             <p>
-              Vi rengør private hjem og arbejdspladser over hele Sjælland,
-              inden for 70 km fra København, med omhu og sans for detaljen –
-              så dit rum føles friskt, behageligt og indbydende.
+              Vi leverer professionel rengøring til private hjem, kontorer og virksomheder 
+              over hele Sjælland, inden for cirka 70 km fra København. Vores kunder findes 
+              blandt andet i København, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup, 
+              Hvidovre, Albertslund, Brøndby, Ishøj og Greve – hvor vi tilbyder både 
+              privat rengøring, erhvervsrengøring og kontorrengøring udført med fokus på 
+              kvalitet, stabil service og sans for detaljer.
             </p>
 
             <p>
-              Med mange års erfaring inden for professionel rengøring
-              tilpasser vi vores arbejde til dit rum, dine rutiner
-              og dine forventninger.
+              Med mange års erfaring inden for professionel rengøring tilbyder vi en bred 
+              vifte af ydelser, herunder house cleaning, office cleaning, hovedrengøring 
+              og vinduespudsning. Vores løsninger tilpasses altid dit hjem, din virksomhed 
+              og dine behov, så resultatet bliver rent, friskt og indbydende.
             </p>
 
             <p>
-              Vores team arbejder grundigt, anvender professionelt udstyr
-              og behandler hvert eneste rum med respekt.
+              Uanset om du har brug for privat rengøring i hjemmet, erhvervsrengøring til 
+              kontorer eller professionel vinduespudsning, arbejder vores team grundigt 
+              og anvender professionelt udstyr for at sikre et stabilt og pålideligt resultat 
+              hver eneste gang.
             </p>
           </div>
 

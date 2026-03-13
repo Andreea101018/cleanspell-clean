@@ -76,7 +76,17 @@ const [errorMessage, setErrorMessage] = useState("");
   return (
     <main className="bg-white">
 
-
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact CleanSpell",
+      "url": "https://www.cleanspell.dk/en/contact"
+    })
+  }}
+/>
       {/* ================= CONTACT SECTION ================= */}
       <section
         className="relative overflow-hidden"
@@ -116,7 +126,15 @@ const [errorMessage, setErrorMessage] = useState("");
               </h1>
 
               <p className="mt-6 text-lg text-slate-600 max-w-xl">
-                Send us a message using the form and we’ll review your request and reply by email with a clear, tailored offer
+              Send us a message through the form and we will review your request and respond by email with a clear and tailored offer.
+
+              We provide professional cleaning for both private homes and businesses in Copenhagen, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup, Hvidovre, Albertslund, Brøndby, Ishøj and Greve, as well as across the rest of Zealand.
+
+              Our services include house cleaning, office cleaning, deep cleaning, commercial cleaning and window cleaning – delivered with reliability, attention to detail and professional equipment.
+              </p>
+
+              <p className="mt-4 text-sm text-slate-600">
+              Fill out the form below and we will respond by email within a few hours.
               </p>
               
 

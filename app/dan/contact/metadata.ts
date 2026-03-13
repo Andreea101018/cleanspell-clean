@@ -3,8 +3,12 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Kontakt os – Professionel rengøring | CleanSpell",
   description:
-    "Kontakt CleanSpell for professionel rengøring i København og på Sjælland. Få et gratis og uforpligtende tilbud.",
-
+    "Kontakt CleanSpell for professionel rengøring i København, Hedehusene, Taastrup, Roskilde og på hele Sjælland. Få et gratis, uforpligtende tilbud på privat- og erhvervsrengøring, kontorrengøring, hovedrengøring og vinduespudsning.",
+  keywords: [
+    "kontakt", "rengøring", "professionel rengøring", "København", "Sjælland",
+    "privat rengøring", "erhvervsrengøring", "kontorrengøring", "hovedrengøring",
+    "vinduespudsning", "tilbud", "CleanSpell"
+  ],
   alternates: {
     canonical: "https://www.cleanspell.dk/dan/contact",
     languages: {
@@ -13,17 +17,15 @@ export const metadata: Metadata = {
       "x-default": "https://www.cleanspell.dk/dan/contact",
     },
   },
-
   openGraph: {
     title: "Kontakt CleanSpell – Professionel rengøring",
     description:
-      "Kontakt os i dag og få et skræddersyet rengøringstilbud til dit hjem eller din virksomhed.",
+      "Kontakt os i dag og få et skræddersyet rengøringstilbud til dit hjem eller din virksomhed i København og på Sjælland.",
     url: "https://www.cleanspell.dk/dan/contact",
     siteName: "CleanSpell",
     locale: "da_DK",
     type: "website",
   },
-
   robots: {
     index: true,
     follow: true,

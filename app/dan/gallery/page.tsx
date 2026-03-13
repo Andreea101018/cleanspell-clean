@@ -23,51 +23,71 @@ const ORDERED_IMAGES = [
   "/gallery/a.15.png",
 
   // Finished results
-  "/gallery/e.png",
-  "/gallery/v.png",
-  "/gallery/a.png",
-  "/gallery/b.png",
-  "/gallery/a.5.png",
-  "/gallery/a.6.png",
-  "/gallery/f.png",
-  "/gallery/pic1.jpg",
-  "/gallery/pic2.jpg",
-  "/gallery/pic3.jpg",
-  "/gallery/pic4.jpg",
-  "/gallery/pic5.jpg",
-  "/gallery/pic6.jpg",
-  "/gallery/pic7.jpg",
-  "/gallery/pic8.jpg",
-  "/gallery/g.png",
-  "/gallery/h.png",
-  "/gallery/i.png",
-  "/gallery/j.png",
-  "/gallery/k.png",
-  "/gallery/l.png",
-  "/gallery/m.png",
-  "/gallery/n.png",
-  "/gallery/o.png",
-  "/gallery/p.png",
-  "/gallery/q.png",
-  "/gallery/s.png",
-  "/gallery/u.png",
-  "/gallery/v.png",
-  "/gallery/a.7.png",
-  "/gallery/a.8.png",
-  "/gallery/a.9.png",
-  "/gallery/a.10.png",
-  "/gallery/v.png",
-  "/gallery/a.11.png",
-  "/gallery/a.12.png",
-  "/gallery/a.13.png",
-  "/gallery/a.16.png",
-  "/gallery/pic9.jpg",
-  "/gallery/pic10.jpg",
-  "/gallery/pic11.jpg",
-  "/gallery/pic12.jpg",
-  "/gallery/pic13.jpg",
-  "/gallery/pic14.jpg",
-  "/gallery/pic15.jpg",
+
+              "/gallery/e.png",
+              "/gallery/v.png",
+              "/gallery/a.png",
+              "/gallery/b.png",
+              "/gallery/a.5.png",
+              "/gallery/a.6.png",
+              "/gallery/f.png",
+               "/gallery/pic1.jpg", 
+               "/gallery/pic2.jpg",
+               "/gallery/pic3.jpg",
+               "/gallery/pic4.jpg",
+               "/gallery/pic5.jpg",
+               "/gallery/pic6.jpg",
+               "/gallery/pic7.jpg",
+               "/gallery/pic8.jpg",
+              "/gallery/g.png",
+              "/gallery/h.png",
+              "/gallery/i.png",
+              "/gallery/j.png",
+               "/gallery/p1.jpg", 
+               "/gallery/p2.jpg",
+               "/gallery/p3.jpg",
+               "/gallery/p4.jpg",
+               "/gallery/p5.jpg",
+               "/gallery/p6.jpg",
+               "/gallery/p7.jpg",
+               "/gallery/p8.jpg",
+              "/gallery/k.png",
+              "/gallery/l.png",
+              "/gallery/m.png",
+              "/gallery/n.png",
+               "/gallery/p9.jpg", 
+               "/gallery/p10.jpg",
+               "/gallery/p11.jpg",
+               "/gallery/p12.jpg",
+               "/gallery/p13.jpg",
+               "/gallery/p14.jpg",
+               "/gallery/p15.jpg",
+               "/gallery/p18.jpg",
+               "/gallery/p19.jpg",
+              "/gallery/p20.jpg",
+              "/gallery/p21.jpg",
+              "/gallery/q.png",
+
+              "/gallery/s.png",
+              "/gallery/u.png",
+ 
+              "/gallery/a.7.png",
+              "/gallery/a.8.png",
+              "/gallery/a.9.png",
+
+              "/gallery/a.10.png",
+
+              "/gallery/a.11.png",
+              "/gallery/a.12.png",
+              "/gallery/a.13.png",
+              "/gallery/a.16.png",
+              "/gallery/pic9.jpg",
+               "/gallery/pic10.jpg",
+               "/gallery/pic11.jpg",
+               "/gallery/pic12.jpg",
+               "/gallery/pic13.jpg",
+               "/gallery/pic14.jpg",
+               "/gallery/pic15.jpg",
 ];
 
 /* ================= PAGE ================= */
@@ -82,6 +102,25 @@ export default function GalleryPageDa() {
 
   return (
     <main className="bg-white text-[#1F2E45]">
+
+        {/* ================= GALLERY IMAGE SCHEMA ================= */}
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "itemListElement": ORDERED_IMAGES.map((src, index) => ({
+            "@type": "ImageObject",
+            "contentUrl": `https://www.cleanspell.dk${src}`,
+            "name": `CleanSpell – Før og efter rengøring #${index + 1}`,
+            "description": `Professionelt før- og efterbillede af rengøringsopgave #${index + 1}, viser resultatet af privat rengøring, kontorrengøring og vinduespudsning`,
+            "position": index + 1,
+            "author": "CleanSpell"
+          }))
+        })
+      }}
+    />
       {/* ================= HERO ================= */}
       <section
         className="relative pt-32 pb-20"

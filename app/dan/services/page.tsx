@@ -178,6 +178,46 @@ export default function ServicesPage() {
 
   return (
     <main className="bg-[#F8FAFC]">
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": [
+              "Privat rengøring",
+              "Kontor- og erhvervsrengøring",
+              "Fraflytningsrengøring",
+              "Hovedrengøring",
+              "Rengøring efter byggeri",
+              "Malerarbejde",
+              "Trappevask",
+              "Udendørs- og ekstra ydelser",
+              "Vinduespudsning",
+              "Anden / specialrengøring"
+            ],
+            "provider": {
+              "@type": "CleaningService",
+              "name": "CleanSpell",
+              "url": "https://www.cleanspell.dk"
+            },
+            "areaServed": [
+              "København",
+              "Hedehusene",
+              "Taastrup",
+              "Roskilde",
+              "Ballerup",
+              "Glostrup",
+              "Hvidovre",
+              "Albertslund",
+              "Brøndby",
+              "Ishøj",
+              "Greve"
+            ]
+          })
+        }}
+      />
       {/* ================= HERO ================= */}
       <section
         className="relative pt-32 pb-20"

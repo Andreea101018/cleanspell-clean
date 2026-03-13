@@ -22,22 +22,19 @@ export default function HeroEn() {
               Nordisk Renhed og Bygg ApS
             </p>
 
-            <p className="text-xs tracking-widest uppercase text-white! mb-3">
-  Serving Zealand - within 70 km of Copenhagen
-</p>
+            <h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
+              Professional Cleaning in Copenhagen and Across Zealand
+            </h1>
 
+            <p className="text-base md:text-xl font-bold leading-relaxed max-w-2xl !text-white">
+              Cleaning does not happen by itself. That’s why choosing the right team matters.
+            </p>
 
-<h1 className="text-4xl md:text-5xl font-bold leading-[1.05] text-white">
-  <span className="relative inline-block font-medium italic drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
-    Cleaning doesn’t happen by itself. That’s why choosing right matters.
-  </span>
-</h1>
-
-
-
-
-            <p className="text-base md:text-lg leading-relaxed max-w-lg text-white!">
-             We provide professional cleaning for homes and businesses, delivered with care, consistency, and respect for your space.
+            <p className="text-base md:text-lg leading-relaxed max-w-3xl text-white!">
+              We provide professional cleaning for private homes and businesses in
+              Copenhagen, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup,
+              Hvidovre, Albertslund, Ishøj, Brøndby and across the rest of Zealand –
+              delivered with care, consistent quality and respect for your space.
             </p>
 
             <div className="pt-6 flex gap-6">

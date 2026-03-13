@@ -102,7 +102,23 @@ export default function GalleryPage() {
 
   return (
     <main className="bg-white text-[#1F2E45]">
-
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "itemListElement": ORDERED_IMAGES.map((src, index) => ({
+              "@type": "ImageObject",
+              "contentUrl": `https://www.cleanspell.dk${src}`,
+              "name": `CleanSpell – Before and After Cleaning #${index + 1}`,
+              "description": `Professional cleaning before and after image showing results of cleaning task #${index + 1}`,
+              "position": index + 1,
+              "author": "CleanSpell"
+            }))
+          })
+        }}
+      />
       {/* ================= HERO ================= */}
       <section
         className="relative pt-32 pb-20"

@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Om os – Professionel rengøring | CleanSpell",
+  title: "Om CleanSpell – Professionel rengøring i København & Sjælland",
   description:
-    "Læs mere om CleanSpell – et professionelt rengøringsfirma med fokus på kvalitet, tillid og stabil service.",
+    "Mød CleanSpell – en familievirksomhed grundlagt af Victoria & Ion. Vi tilbyder pålidelig og professionel rengøring til private og erhverv i København, Hedehusene, Taastrup, Roskilde og på hele Sjælland. Fokus på kvalitet, tillid og detaljeorienteret arbejde.",
+
+  keywords: [
+    "CleanSpell", "Om os", "Rengøringsfirma", "København", "Hedehusene", "Taastrup",
+    "Roskilde", "Sjælland", "Privat rengøring", "Erhvervsrengøring",
+    "Kontorrengøring", "Fraflytningsrengøring", "Hovedrengøring", "Vinduespudsning",
+    "Rengøring efter byggeri", "Malerarbejde", "Trappevask", "Udendørs ydelser",
+    "Familievirksomhed", "Victoria & Ion", "Tillid", "Kvalitet"
+  ],
 
   alternates: {
     canonical: "https://www.cleanspell.dk/dan/about",
@@ -15,9 +23,9 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Om CleanSpell – Professionel rengøring",
+    title: "Om CleanSpell – Professionel rengøring i København & Sjælland",
     description:
-      "Vi leverer professionel rengøring med fokus på kvalitet, tillid og langsigtede kunderelationer.",
+      "Lær mere om CleanSpell – vores historie, værdier og team. Professionel rengøring til private og erhverv i København og på Sjælland, drevet af Victoria & Ion.",
     url: "https://www.cleanspell.dk/dan/about",
     siteName: "CleanSpell",
     locale: "da_DK",

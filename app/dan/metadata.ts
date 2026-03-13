@@ -8,6 +8,25 @@ export const metadata: Metadata = {
 
   alternates: languageAlternates(""),
 
+  keywords: [
+    // Cities served
+    "København", "Hedehusene", "Taastrup", "Roskilde", "Ballerup", "Glostrup", "Hvidovre",
+    "Albertslund", "Brøndby", "Ishøj", "Greve", "Vallensbæk", "Herlev", "Rødovre", "Frederiksberg",
+    "Gentofte", "Lyngby", "Bagsværd", "Kastrup", "Tårnby", "Dragør", "Solrød", "Køge", "Holbæk", "Ringsted",
+
+    // General cleaning terms
+    "rengøring", "professionel rengøring", "privat rengøring", "erhvervsrengøring", "kontorrengøring",
+    "hus rengøring", "firma rengøring", "ejendomsrengøring", "dybderengøring", "flytterengøring",
+
+    // Specific service types
+    "House Cleaning", "Residential Cleaning", "Office Cleaning", "Commercial Cleaning",
+    "Apartment Cleaning", "Deep Cleaning", "Move-Out Cleaning", "End of Tenancy Cleaning",
+    "Post Construction Cleaning", "Staircase Cleaning", "Window Cleaning",
+    "Building Cleaning", "Professional Cleaning Services", "Industrial Cleaning", "Property Cleaning",
+    "Rengøring efter byggeri", "Malerarbejde", "Trappevask", "Udendørs- og ekstra ydelser",
+    "Vinduespudsning", "Anden / specialrengøring"
+  ],
+
   openGraph: {
     title: "Professionel rengøring i København & på Sjælland | CleanSpell",
     description:

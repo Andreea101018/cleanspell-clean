@@ -15,17 +15,26 @@ export default function CleanSpellPartnerEn() {
 
           <div className="mt-8 space-y-6 text-[#475569] leading-relaxed">
             <p>
-              We clean private homes and workplaces across Zealand, within 70 km of Copenhagen, with care and attention so your space feels fresh, comfortable, and welcoming.
+              We provide professional cleaning for private homes, offices and businesses
+              across Zealand, within approximately 70 km of Copenhagen. Our clients are
+              located in Copenhagen, Hedehusene, Taastrup, Roskilde, Ballerup, Glostrup,
+              Hvidovre, Albertslund, Brøndby, Ishøj and Greve – where we deliver reliable
+              house cleaning, commercial cleaning and office cleaning with a strong focus
+              on quality, consistent service and attention to detail.
             </p>
 
             <p>
-              With long experience in professional cleaning, we adapt our work
-              to your space, your routines, and your expectations.
+              With many years of experience in professional cleaning, we offer a wide
+              range of services including house cleaning, office cleaning, deep cleaning
+              and window cleaning. Our solutions are always adapted to your home, your
+              workplace and your specific needs, ensuring spaces that feel clean, fresh
+              and welcoming.
             </p>
 
             <p>
-              Our team works carefully, uses professional equipment,
-              and treats every space with respect.
+              Whether you need house cleaning for your home, commercial cleaning for
+              offices or professional window cleaning, our team works carefully and uses
+              professional equipment to ensure reliable, high-quality results every time.
             </p>
           </div>
 
